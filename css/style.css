@@ -45,3 +45,38 @@ form #list-id-block label:first-child, form #list-id-block label:nth-child(4) {
   color: #298eb2; }
 form #list-id-block label:nth-child(4) {
   display: block; }
+form .progress_bar-classes-block {
+  position: relative; }
+  form .progress_bar-classes-block label {
+    text-transform: uppercase;
+    width: 230px;
+    display: inline-block;
+    color: #298eb2;
+    vertical-align: top; }
+  form .progress_bar-classes-block p {
+    position: absolute;
+    width: 200px;
+    top: 30px;
+    left: 0;
+    font-size: 14px;
+    line-height: 150%; }
+form #stylesheet-type-block label:first-child {
+  text-transform: uppercase;
+  width: 230px;
+  display: inline-block;
+  color: #298eb2; }
+form #colors-block ul li {
+  display: block; }
+  form #colors-block ul li label {
+    text-transform: uppercase;
+    width: 230px;
+    display: inline-block;
+    color: #298eb2; }
+form .output-block label {
+  text-transform: uppercase;
+  width: 230px;
+  display: inline-block;
+  color: #298eb2;
+  vertical-align: top; }
+form .output-block textarea {
+  width: 484px; }
