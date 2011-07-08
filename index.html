@@ -107,8 +107,21 @@ hr {
 input, select {
     vertical-align:middle;
 }
-  </style>
-  <link type="text/css" rel="stylesheet" href="progress_bar.css" />
+
+/* Form Styles */
+.progress_bar-id-type-label {
+    display: inline-block;
+    width: 5em;
+}
+.progress_bar-id-type-label:after {
+    content: attr(title);
+ }
+
+div, form {
+    padding:  1em;
+}
+</style>
+  <!-- <link type="text/css" rel="stylesheet" href="progress_bar.css" /> -->
   <style type="text/css" id="stylesheet_output"></style>
   </head>
   <body>
@@ -149,8 +162,8 @@ input, select {
         <label for="future_color">Future steps color:</label><input type="text" id="future_color" name="future-color" value="#747474" />
     </p>
     <p class="output-block">
-        <label for="output">CSS</label>
-        <textarea id="css_output" name="css_output" cols="80" rows="20"></textarea>
+        <label id="output_label" for="output">SASS</label>
+        <textarea id="output" name="css_output" cols="80" rows="20"></textarea>
     </p>
     </form>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
@@ -161,7 +174,7 @@ input, select {
     <script id="progress_bar-css-tpl" type="text/x-tpl">
         {{ progressBarIdTypeSymbol }}{{ progressBarId }} {
           display: block;
-          width: 740px;
+          width: 720px;
           height: 25px;
           background-color: {{ future_color }};
           -moz-border-radius: 10px;
@@ -177,7 +190,7 @@ input, select {
           position: relative; }
           {{ progressBarIdTypeSymbol }}{{ progressBarId }}:before {
             display: block;
-            width: 740px;
+            width: 720px;
             height: 12px;
             background-color: rgba(255, 255, 255, 0.1);
             position: absolute;
@@ -189,7 +202,7 @@ input, select {
             z-index: 400; }
           {{ progressBarIdTypeSymbol }}{{ progressBarId }}:after {
             display: block;
-            width: 740px;
+            width: 720px;
             height: 25px;
             -moz-border-radius: 10px;
             -webkit-border-radius: 10px;
@@ -217,7 +230,7 @@ input, select {
               -moz-border-radius-bottomleft: 10px;
               border-top-left-radius: 10px;
               border-bottom-left-radius: 10px; }
-            {{ progressBarIdType }}{{ progressBarId }} li:last-child {
+            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:last-child {
               -webkit-border-top-right-radius: 10px;
               -webkit-border-bottom-right-radius: 10px;
               -moz-border-radius-topright: 10px;
@@ -353,16 +366,20 @@ input, select {
 
     </script>
     <script id="step-active-css" type="text/x-tpl">
-        .{{ class_name }} li:nth-child({{ index }}) {
-            background-color: {{ active_color }}; }
-            .{{ class_name }} li:nth-child({{ index }}):before {
-                border-left: 13px solid {{ active_color }} !important; }
+.{{ class_name }} li:nth-child({{ index }}) {
+    background-color: {{ active_color }};
+}
+.{{ class_name }} li:nth-child({{ index }}):before {
+    border-left-color: {{ active_color }} !important;
+}
     </script>
     <script id="step-past-css" type="text/x-tpl">
-    .{{ class_name }} li:nth-child(-n+{{ past_index }}) {
-        background-color: {{ past_color }} !important; }
-        .{{ class_name }} li:nth-child({{ past_index }}):before {
-            border-left: 13px solid {{ past_color }} !important; }
+.{{ class_name }} li:nth-child(-n+{{ past_index }}) {
+    background-color: {{ past_color }} !important;
+}
+.{{ class_name }} li:nth-child(-n+{{ past_index }}):before {
+    border-left-color: {{ past_color }} !important;
+}
     </script>
     <script id="step-active-sass" type="text/x-tpl">
     .{{ class_name }}
@@ -371,7 +388,7 @@ input, select {
                 background-color: {{ active_color }}
 
                 &:before
-                    border-left: 13px solid {{ active_color }} !important
+                    border-left-color: {{ active_color }} !important
     </script>
     <script id="step-past-sass" type="text/x-tpl">
     .{{ class_name }}
@@ -380,7 +397,7 @@ input, select {
                 background-color: {{ past_color }}
 
                 &:before
-                    border-left: 13px solid {{ past_color }} !important
+                    border-left-color: {{ past_color }} !important
     </script>
     <script type="text/javascript">
     (function(){
@@ -407,6 +424,7 @@ input, select {
             _set_active_tpl(type);
             _set_past_tpl(type);
             _set_pbar_tpl(type);
+            $('#output_label').text(type.toUpperCase());
             _render_output();
         }).each(function(){ if (this.checked) $(this).change(); });
         $('#list-id-block input[type="radio"]').change(function(){
@@ -441,7 +459,6 @@ input, select {
                 css_output_array.push(Flatstache.to_html(__data.css_pbar_tpl, __data));
             }
             if (__data && __data.classes) {
-                console.log('data AND classes');
                 //Loop through classes (progress bar or breadcrumb steps) and create rules for each step
                 for (var i = 0, j = 1, len = __data.classes.length; i<len; i++, j++) {
                     _data = $.extend({}, __data, {
@@ -463,7 +480,7 @@ input, select {
                 }
 
                 //Render output
-                $('#css_output').val(output_array.join("\n"));
+                $('#output').val(output_array.join("\n"));
                 $container.find('ul').replaceWith($ul);
                 if (__data.progressBarIdType=='id') {
                     $ul.attr('id', __data.progressBarId);
@@ -479,9 +496,7 @@ input, select {
                 $css.text(css_output_array.join("\n"));
                 $('#stylesheet_output').replaceWith($css);
                 //console.log(css_output_array.join("\n"));
-            } else {
-                console.log('no data OR no classes');
-            }
+            } 
         }
         _render_output();
     })();
