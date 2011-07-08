@@ -30,3 +30,18 @@ h1 {
   font-size: 20px;
   margin-bottom: 20px;
   text-align: center; }
+
+form ul {
+  list-style-type: none;
+  width: 720px;
+  margin: 0 auto; }
+  form ul li {
+    display: block;
+    margin-bottom: 15px; }
+form #list-id-block label:first-child, form #list-id-block label:nth-child(4) {
+  text-transform: uppercase;
+  width: 230px;
+  display: inline-block;
+  color: #298eb2; }
+form #list-id-block label:nth-child(4) {
+  display: block; }

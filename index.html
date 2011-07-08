@@ -33,7 +33,6 @@ div, form {
     </div>
     
     <form>
-<<<<<<< HEAD
         <ul>
             <li id="list-id-block">
                     <ul>
@@ -55,7 +54,8 @@ div, form {
                     </ul>
             </li>
             <li class="progress_bar-classes-block">
-                    <label for="progress_bar-classes">Enter comma-separated progress_bar of classes in order.</label>
+                    <label for="progress_bar-classes">Progress Bar Step Classes:</label>
+                    <p>Enter comma-separated progress bar for class='<em>value</em>' in order.</p>
                     <textarea name="progress_bar-classes" id="progress_bar-classes" cols="50" rows="10">step_one, step_two, step_three, step_four, step_five, step_six</textarea>
             </li>
             <li id="stylesheet-type-block">
@@ -65,9 +65,17 @@ div, form {
                     <label for="stylesheet-type-sass"><input type="radio" name="stylesheet-type" id="stylesheet-type-sass" value="sass" checked="checked" />SASS</label>
             </li>
             <li id="colors-block">
-                    <label for="past_color">Past steps color:</label><input type="text" id="past_color" name="past_color" value="#298EB2" />
-                    <label for="active_color">Active steps color:</label><input type="text" id="active_color" name="active-color" value="#EB008B" />
-                    <label for="future_color">Future steps color:</label><input type="text" id="future_color" name="future-color" value="#747474" />
+                <ul>
+                    <li>
+                        <label for="past_color">Past steps color:</label><input type="text" id="past_color" name="past_color" value="#298EB2" />
+                    </li>
+                    <li>
+                        <label for="active_color">Active steps color:</label><input type="text" id="active_color" name="active-color" value="#EB008B" />
+                    </li>
+                    <li>
+                        <label for="future_color">Future steps color:</label><input type="text" id="future_color" name="future-color" value="#747474" />
+                    </li>
+                </ul>
             </li>
             <li class="output-block">
                     <label id="output_label" for="output">SASS</label>
