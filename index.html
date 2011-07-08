@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Progress Bar Code Generator</title>
+  <style type="text/css">
+      /* HTML CSS Reset */
+    html, body, div, ul, li {
+        margin:0;
+        padding:0;
+        border:0;
+        outline:0;
+        font-size:100%;
+        vertical-align:baseline;
+        background:transparent;
+    }
+
+    body {
+        line-height:1;
+    }
+  </style>
+  <link type="text/css" rel="stylesheet" href="progress_bar.css" />
+  <style type="text/css" id="stylesheet_output"></style>
+  </head>
+  <body>
+    <div id="progress_bar_container">
+        <ul id="progress_bar" class="step_two">
+            <li>First</li>
+            <li>Second</li>
+            <li>Third</li>
+            <li>Fourth</li>
+            <li>Fifth</li>
+            <li>Sixth</li>
+        </ul>
+    </div>
+    <form>
+    <p id="list-id-block">
+        <label>Progress bar is identified by:</label>
+        <label class="progress_bar-id-type-label" title="class">
+            <input id="progress_bar-type-class" class="progress_bar-type" type="radio" name="progress_bar-id-type" value="class" />
+        </label>
+        <label class="progress_bar-id-type-label" title="id">
+            <input id="progress_bar-type-id" class="progress_bar-type" type="radio" name="progress_bar-id-type" value="id" checked="checked" />
+        </label>
+        <label for="progress_bar-id">Progress Bar Identifier</label>
+        <input type="text" id="progress_bar-id" name="progress_bar-id" value="progress_bar">
+    </p>
+    <p class="progress_bar-classes-block">
+        <label for="progress_bar-classes">Enter comma-separated progress_bar of classes in order.</label>
+        <textarea name="progress_bar-classes" id="progress_bar-classes" cols="50" rows="10">step_one, step_two, step_three, step_four, step_five, step_six</textarea>
+    </p>
+    <p id="stylesheet-type-block">
+        <label for="stylesheet-type">Stylesheet Type:</label>
+        <label for="stylesheet_type_css"><input type="radio" name="stylesheet-type" id="stylesheet_type_css" value="css" />CSS</label>
+        <label for="stylesheet-type-sass"><input type="radio" name="stylesheet-type" id="stylesheet-type-sass" value="sass" checked="checked" />SASS</label>
+    </p>
+    <p id="colors-block">
+        <label for="past_color">Past steps color:</label><input type="text" id="past_color" name="past_color" value="417E9A" />
+        <label for="active_color">Active steps color:</label><input type="text" id="active_color" name="active-color" value="5AABCF" />
+        <label for="future_color">Future steps color:</label><input type="text" id="future_color" name="future-color" value="747474" />
+    </p>
+    <p class="output-block">
+        <label for="output">CSS</label>
+        <textarea id="css_output" name="css_output" cols="80" rows="20"></textarea>
+    </p>
+    </form>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript">
+    /*! (c) 2011 Nathan Vander Wilt and Aaron McCall. MIT license. */
+    var Flatstache=(function(){var a=/{{{\s*(\w+)\s*}}}/g,b=/{{\s*(\w+)\s*}}/g,c=/[&\"'<>\\]/g,d={"&":"&amp;","\\":"&#92;",'"':"&quot;","'":"&#39;","<":"&lt;",">":"&gt;"},e=function(a){return a.replace(c,function(a){return d[a]||a})},f=function(a){return[undefined,null,!1].indexOf(a)>-1?"":a.toString()},g={};g.to_html=function(c,d){return c.replace(a,function(a,b){return f(d[b])}).replace(b,function(a,b){return e(f(d[b]))})};return g})();
+    </script>
+    <script id="progress_bar-css-tpl" type="text/x-tpl">
+        {{ progressBarIdTypeSymbol }}{{ progressBarId }} {
+          display: block;
+          width: 740px;
+          height: 25px;
+          background-color: #{{ past_color }};
+          -moz-border-radius: 10px;
+          -webkit-border-radius: 10px;
+          border-radius: 10px;
+          margin-top: 10px;
+          margin-bottom: 30px;
+          font-family: "Futura", "Arial", sans-serif;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 14px;
+          color: white;
+          position: relative; }
+          {{ progressBarIdTypeSymbol }}{{ progressBarId }}:before {
+            display: block;
+            width: 740px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            content: "";
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            z-index: 400; }
+          {{ progressBarIdTypeSymbol }}{{ progressBarId }}:after {
+            display: block;
+            width: 740px;
+            height: 25px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            content: "";
+            -moz-box-shadow: inset 0 0 5px #343434;
+            -webkit-box-shadow: inset 0 0 5px #343434;
+            box-shadow: inset 0 0 5px #343434;
+            z-index: 500; }
+          {{ progressBarIdTypeSymbol }}{{ progressBarId }} li {
+            display: inline-block;
+            width: 120px;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            position: relative;
+            height: 15px; }
+            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:first-child {
+              -webkit-border-top-left-radius: 10px;
+              -webkit-border-bottom-left-radius: 10px;
+              -moz-border-radius-topleft: 10px;
+              -moz-border-radius-bottomleft: 10px;
+              border-top-left-radius: 10px;
+              border-bottom-left-radius: 10px; }
+            {{ progressBarIdType }}{{ progressBarId }} li:last-child {
+              -webkit-border-top-right-radius: 10px;
+              -webkit-border-bottom-right-radius: 10px;
+              -moz-border-radius-topright: 10px;
+              -moz-border-radius-bottomright: 10px;
+              border-top-right-radius: 10px;
+              border-bottom-right-radius: 10px; }
+            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:after {
+              width: 0px;
+              height: 0px;
+              display: block;
+              border: 13px solid transparent;
+              border-left: 13px solid white;
+              position: absolute;
+              top: 0px;
+              left: 121px;
+              content: "";
+              z-index: 200; }
+            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:last-child:before {
+              border: none; }
+            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:before {
+              width: 0px;
+              height: 0px;
+              display: block;
+              border: 13px solid transparent;
+              border-left: 13px solid #{{ past_color }};
+              position: absolute;
+              top: 0px;
+              left: 118px;
+              content: "";
+              z-index: 300; }
+            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:last-child:after {
+              border: none; }
+    </script>
+    <script id="progress_bar-sass-tpl" type="text/x-tpl">
+    {{ progressBarIdTypeSymbol }}{{ progressBarId }}
+        display: block
+        width: 740px
+        height: 25px
+        background-color: #{{ past_color }}
+        -moz-border-radius: 10px
+        -webkit-border-radius: 10px
+        border-radius: 10px
+        font-family: "Futura","Arial",sans-serif
+        font-weight: 700
+        font-size: .9em
+        color: #fff
+        position: relative
+        
+        &:before
+            display: block
+            width: 740px
+            height: 12px
+            background-color: rgba(255, 255, 255, .1)
+            position: absolute
+            top: 0px
+            left: 0px
+            content: ""
+            border-top-left-radius: 10px
+            border-top-right-radius: 10px
+            z-index: 400
+            
+        &:after
+            display: block
+            width: 740px
+            height: 25px
+            -moz-border-radius: 10px
+            -webkit-border-radius: 10px
+            border-radius: 10px
+            position: absolute
+            top: 0px
+            left: 0px
+            content: "";
+            -moz-box-shadow: inset 0 0 5px #343434
+            -webkit-box-shadow: inset 0 0 5px #343434
+            box-shadow: inset 0 0 5px #343434
+            z-index: 500                
+    </script>
+    <script id="step-active-css" type="text/x-tpl">
+        .{{ class_name }} li:nth-child({{ index }}) {
+            background-color: #{{ active_color }}; }
+            .{{ class_name }} li:nth-child({{ index }}):before {
+                border-left: 13px solid #{{ active_color }} !important; }
+    </script>
+    <script id="step-past-css" type="text/x-tpl">
+    .{{ class_name }} li:nth-child(-n+{{ past_index }}) {
+        background-color: #{{ past_color }} !important; }
+        .{{ class_name }} li:nth-child({{ past_index }}):before {
+            border-left: 13px solid #{{ past_color }} !important; }
+    </script>
+    <script id="step-active-sass" type="text/x-tpl">
+    .{{ class_name }}
+        li
+            &:nth-child({{ index }})
+                background-color: #{{ active_color }}
+
+                &:before
+                    border-left: 13px solid #{{ active_color }} !important
+    </script>
+    <script id="step-past-sass" type="text/x-tpl">
+    .{{ class_name }}
+        li
+            &:nth-child(-n+{{ past_index }})
+                background-color: #{{ past_color }}
+
+                &:before
+                    border-left: 13px solid #{{ past_color }} !important
+    </script>
+    <script type="text/javascript">
+    (function(){
+        var __data = {}, $_dom = {};
+        window.__data = __data;
+        function $get(id) { return document.getElementById(id) }
+        function _set_pbar_tpl(type) {
+            __data.pbar_tpl = $('#progress_bar-' + type + '-tpl').text();
+            __data.css_pbar_tpl = (type=='css') ? __data.pbar_tpl : $('#progress_bar-css-tpl').text();
+        }
+        function _set_active_tpl(type) {
+            __data.active_tpl = $('#step-active-' + type).text();
+            __data.css_active_tpl = (type=='css') ? __data.active_tpl : $('#step-active-css').text();
+        }
+        function _set_past_tpl(type) {
+            __data.past_tpl = $('#step-past-' + type).text();
+            __data.css_past_tpl = (type=='css') ? __data.past_tpl : $('#step-past-css').text();
+        }
+        $('#stylesheet-type-block input').change(function(){
+            var type = this.checked ? this.value : __data.stylesheetType||'sass';
+            __data.styleSheetType = type;
+            _set_active_tpl(type);
+            _set_past_tpl(type);
+            _set_pbar_tpl(type);
+            _render_output();
+        }).change();
+        $('#list-id-block input[type="radio"]').change(function(){
+            __data.progressBarIdTypeSymbol = this.checked ? (this.value=='id'?'#':'.') : __data.progressBarIdType||'#';
+            __data.progressBarIdType = this.checked ? (this.value=='id'?'id':'class') : __data.progressBarIdType||'id';
+            _render_output();
+        }).change();
+        $('#progress_bar-id').keyup(function(){
+            __data.progressBarId = this.value;
+            _render_output();
+        }).keyup();
+        $('#progress_bar-classes').keyup(function() {
+            __data.classes = this.value.replace(/\s/g, '').split(',');
+            __data.liText = [];
+            $.each(__data.classes, function(){
+                __data.liText.push(this.split(/[^a-zA-Z0-9]/g).join(' ').toUpperCase());
+            });
+            _render_output();
+        }).keyup();
+        $('#colors-block input').change(function() {
+            __data[this.id] = this.value;
+            _render_output();
+        }).each(function(){
+            $(this).change();
+        });
+        function _render_output() {
+            var output_array = [], css_output_array = [], _data, $ul = $('<ul />'), $container = $('#progress_bar_container');
+
+            output_array.push(Flatstache.to_html(__data.pbar_tpl, __data));
+
+            if (__data.styleSheetType != 'css') {
+                css_output_array.push(Flatstache.to_html(__data.css_pbar_tpl, __data));
+            }
+            if (__data && __data.classes) {
+                for (var i = 0, j = 1, len = __data.classes.length; i<len; i++, j++) {
+                    _data = $.extend({}, __data, {
+                        'index': j,
+                        'past_index': i,
+                        'class_name': __data.classes[i]
+                    });
+                    $ul.append('<li>' + __data.liText[i] + '</li>');
+                    output_array.push(Flatstache.to_html(__data.active_tpl, _data));
+                    if (__data.styleSheetType != 'css') {
+                        css_output_array.push(Flatstache.to_html(__data.css_active_tpl, _data));
+                    }
+                    if (i != 0) {
+                        output_array.push(Flatstache.to_html(__data.past_tpl, _data));
+                        if (__data.styleSheetType != 'css') {
+                            css_output_array.push(Flatstache.to_html(__data.css_past_tpl, _data));
+                        }
+                    }
+                }
+                $('#css_output').val(output_array.join("\n"));
+                $container.find('ul').replaceWith($ul);
+                if (__data.progressBarIdType=='id') {
+                    $ul.attr('id', __data.progressBarId);
+                } else {
+                    $ul.addClass(__data.progressBarId);
+                }
+                $ul.addClass(__data.classes[Math.floor(Math.random()*__data.classes.length)]);
+
+                if (__data.styleSheetType == 'css') {
+                    css_output_array = output_array;
+                }
+                $css = $('<style type="text/css" />').attr('id', 'css_output');
+                $css.text(css_output_array.join("\n"));
+                $('#stylesheet_output').replaceWith($css);
+                console.log(css_output_array.join("\n"));
+            }
+        }
+        _render_output();
+    })();
+    </script>
+  </body>
+</html>
