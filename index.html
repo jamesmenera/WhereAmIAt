@@ -4,110 +4,6 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <title>Progress Bar Code Generator</title>
   <style type="text/css">
-      /* HTML CSS Reset */
-/*
-html5doctor.com Reset Stylesheet
-v1.6.1
-Last Updated: 2010-09-17
-Author: Richard Clark - http://richclarkdesign.com
-Twitter: @rich_clark
-*/
-
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
-}
-
-body {
-    line-height:1;
-}
-
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section {
-    display:block;
-}
-
-nav ul {
-    list-style:none;
-}
-
-blockquote, q {
-    quotes:none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content:'';
-    content:none;
-}
-
-a {
-    margin:0;
-    padding:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
-}
-
-/* change colours to suit your needs */
-ins {
-    background-color:#ff9;
-    color:#000;
-    text-decoration:none;
-}
-
-/* change colours to suit your needs */
-mark {
-    background-color:#ff9;
-    color:#000;
-    font-style:italic;
-    font-weight:bold;
-}
-
-del {
-    text-decoration: line-through;
-}
-
-abbr[title], dfn[title] {
-    //border-bottom:1px dotted;
-    //cursor:help;
-}
-
-table {
-    border-collapse:collapse;
-    border-spacing:0;
-}
-
-/* change border colour to suit your needs */
-hr {
-    display:block;
-    height:1px;
-    border:0;
-    border-top:1px solid #cccccc;
-    margin:1em 0;
-    padding:0;
-}
-
-input, select {
-    vertical-align:middle;
-}
-
 /* Form Styles */
 .progress_bar-id-type-label {
     display: inline-block;
@@ -121,10 +17,17 @@ div, form {
     padding:  1em;
 }
 </style>
-  <!-- <link type="text/css" rel="stylesheet" href="progress_bar.css" /> -->
+  <link rel="stylesheet" href="css/reset.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!-- <link type="text/css" rel="stylesheet" href="progress_bar.css" /> -->
   <style type="text/css" id="stylesheet_output"></style>
   </head>
   <body>
+  <div id="wrap">
+    <h1>Where Am I <span>At?</span></h1>
+    
+    <p id="bar_description">This a Purely HTML and CSS progress bar! It uses no images and works in ALL modern browsers!</p>
+    
     <div id="progress_bar_container">
         <ul id="progress_bar" class="step_two">
             <li>First</li>
@@ -135,6 +38,7 @@ div, form {
             <li>Sixth</li>
         </ul>
     </div>
+    
     <form>
     <p id="list-id-block">
         <label>Progress bar is identified by:</label>
@@ -157,8 +61,8 @@ div, form {
         <label for="stylesheet-type-sass"><input type="radio" name="stylesheet-type" id="stylesheet-type-sass" value="sass" checked="checked" />SASS</label>
     </p>
     <p id="colors-block">
-        <label for="past_color">Past steps color:</label><input type="text" id="past_color" name="past_color" value="#417E9A" />
-        <label for="active_color">Active steps color:</label><input type="text" id="active_color" name="active-color" value="#5AABCF" />
+        <label for="past_color">Past steps color:</label><input type="text" id="past_color" name="past_color" value="#298EB2" />
+        <label for="active_color">Active steps color:</label><input type="text" id="active_color" name="active-color" value="#EB008B" />
         <label for="future_color">Future steps color:</label><input type="text" id="future_color" name="future-color" value="#747474" />
     </p>
     <p class="output-block">
@@ -501,5 +405,6 @@ div, form {
         _render_output();
     })();
     </script>
+    </div>
   </body>
 </html>
