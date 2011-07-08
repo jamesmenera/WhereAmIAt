@@ -33,36 +33,48 @@ div, form {
     </div>
     
     <form>
-    <p id="list-id-block">
-        <label>Progress bar is identified by:</label>
-        <label class="progress_bar-id-type-label" title="class">
-            <input id="progress_bar-type-class" class="progress_bar-type" type="radio" name="progress_bar-id-type" value="class" />
-        </label>
-        <label class="progress_bar-id-type-label" title="id">
-            <input id="progress_bar-type-id" class="progress_bar-type" type="radio" name="progress_bar-id-type" value="id" checked="checked" />
-        </label>
-        <label for="progress_bar-id">Progress Bar Identifier</label>
-        <input type="text" id="progress_bar-id" name="progress_bar-id" value="progress_bar">
-    </p>
-    <p class="progress_bar-classes-block">
-        <label for="progress_bar-classes">Enter comma-separated list of classes in order.</label>
-        <textarea name="progress_bar-classes" id="progress_bar-classes" cols="50" rows="10">step_one, step_two, step_three, step_four, step_five, step_six</textarea>
-    </p>
-    <p id="stylesheet-type-block">
-        <label for="stylesheet-type">Stylesheet Type:</label>
-        <label for="stylesheet_type_css"><input type="radio" name="stylesheet-type" id="stylesheet_type_css" value="css" />CSS</label>
-        <label for="stylesheet_type_less"><input type="radio" name="stylesheet-type" id="stylesheet_type_less" value="less" />LESS</label>
-        <label for="stylesheet-type-sass"><input type="radio" name="stylesheet-type" id="stylesheet-type-sass" value="sass" checked="checked" />SASS</label>
-    </p>
-    <p id="colors-block">
-        <label for="past_color">Past steps color:</label><input type="text" id="past_color" name="past_color" value="#298EB2" />
-        <label for="active_color">Active steps color:</label><input type="text" id="active_color" name="active-color" value="#EB008B" />
-        <label for="future_color">Future steps color:</label><input type="text" id="future_color" name="future-color" value="#747474" />
-    </p>
-    <p class="output-block">
-        <label id="output_label" for="output">SASS</label>
-        <textarea id="output" name="css_output" cols="80" rows="20"></textarea>
-    </p>
+    <ul>
+        <li>
+            <p id="list-id-block">
+                <label>Progress bar is identified by:</label>
+                <label class="progress_bar-id-type-label" title="class">
+                    <input id="progress_bar-type-class" class="progress_bar-type" type="radio" name="progress_bar-id-type" value="class" />
+                </label>
+                <label class="progress_bar-id-type-label" title="id">
+                    <input id="progress_bar-type-id" class="progress_bar-type" type="radio" name="progress_bar-id-type" value="id" checked="checked" />
+                </label>
+                <label for="progress_bar-id">Progress Bar Identifier</label>
+                <input type="text" id="progress_bar-id" name="progress_bar-id" value="progress_bar">
+            </p>
+        </li>
+        <li>
+                <p class="progress_bar-classes-block">
+                <label for="progress_bar-classes">Enter comma-separated list of classes in order.</label>
+                <textarea name="progress_bar-classes" id="progress_bar-classes" cols="50" rows="10">step_one, step_two, step_three, step_four, step_five, step_six</textarea>
+                </p>
+        </li>
+        <li>
+            <p id="stylesheet-type-block">
+                <label for="stylesheet-type">Stylesheet Type:</label>
+                <label for="stylesheet_type_css"><input type="radio" name="stylesheet-type" id="stylesheet_type_css" value="css" />CSS</label>
+                <label for="stylesheet_type_less"><input type="radio" name="stylesheet-type" id="stylesheet_type_less" value="less" />LESS</label>
+                <label for="stylesheet-type-sass"><input type="radio" name="stylesheet-type" id="stylesheet-type-sass" value="sass" checked="checked" />SASS</label>
+            </p>
+        </li>
+        <li>
+            <p id="colors-block">
+                <label for="past_color">Past steps color:</label><input type="text" id="past_color" name="past_color" value="#298EB2" />
+                <label for="active_color">Active steps color:</label><input type="text" id="active_color" name="active-color" value="#EB008B" />
+                <label for="future_color">Future steps color:</label><input type="text" id="future_color" name="future-color" value="#747474" />
+            </p>
+        </li>
+        <li>
+            <p class="output-block">
+                <label id="output_label" for="output">SASS</label>
+                <textarea id="output" name="css_output" cols="80" rows="20"></textarea>
+            </p>
+        </li>
+    </ul>
     </form>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script type="text/javascript">
