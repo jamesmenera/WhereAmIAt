@@ -126,14 +126,7 @@ div, form {
   </head>
   <body>
     <div id="progress_bar_container">
-        <ul id="progress_bar" class="step_two">
-            <li>First</li>
-            <li>Second</li>
-            <li>Third</li>
-            <li>Fourth</li>
-            <li>Fifth</li>
-            <li>Sixth</li>
-        </ul>
+        <ul></ul>
     </div>
     <form>
     <p id="list-id-block">
@@ -154,6 +147,7 @@ div, form {
     <p id="stylesheet-type-block">
         <label for="stylesheet-type">Stylesheet Type:</label>
         <label for="stylesheet_type_css"><input type="radio" name="stylesheet-type" id="stylesheet_type_css" value="css" />CSS</label>
+        <label for="stylesheet_type_less"><input type="radio" name="stylesheet-type" id="stylesheet_type_less" value="less" />LESS</label>
         <label for="stylesheet-type-sass"><input type="radio" name="stylesheet-type" id="stylesheet-type-sass" value="sass" checked="checked" />SASS</label>
     </p>
     <p id="colors-block">
@@ -172,213 +166,340 @@ div, form {
     var Flatstache=(function(){var a=/{{{\s*(\w+)\s*}}}/g,b=/{{\s*(\w+)\s*}}/g,c=/[&\"'<>\\]/g,d={"&":"&amp;","\\":"&#92;",'"':"&quot;","'":"&#39;","<":"&lt;",">":"&gt;"},e=function(a){return a.replace(c,function(a){return d[a]||a})},f=function(a){return[undefined,null,!1].indexOf(a)>-1?"":a.toString()},g={};g.to_html=function(c,d){return c.replace(a,function(a,b){return f(d[b])}).replace(b,function(a,b){return e(f(d[b]))})};return g})();
     </script>
     <script id="progress_bar-css-tpl" type="text/x-tpl">
-        {{ progressBarIdTypeSymbol }}{{ progressBarId }} {
-          display: block;
-          width: 720px;
-          height: 25px;
-          background-color: {{ future_color }};
-          -moz-border-radius: 10px;
-          -webkit-border-radius: 10px;
-          border-radius: 10px;
-          margin-top: 10px;
-          margin-bottom: 30px;
-          font-family: "Futura", "Arial", sans-serif;
-          font-weight: 700;
-          font-size: 14px;
-          line-height: 14px;
-          color: white;
-          position: relative; }
-          {{ progressBarIdTypeSymbol }}{{ progressBarId }}:before {
-            display: block;
-            width: 720px;
-            height: 12px;
-            background-color: rgba(255, 255, 255, 0.1);
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            content: "";
+{{ progressBarIdTypeSymbol }}{{ progressBarId }} {
+    display: block;
+    width: 720px;
+    height: 25px;
+    background-color: {{ future_color }};
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-family: "Futura", "Arial", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: white;
+    position: relative;
+}
+    {{ progressBarIdTypeSymbol }}{{ progressBarId }}:before {
+        display: block;
+        width: 720px;
+        height: 12px;
+        background-color: rgba(255, 255, 255, 0.1);
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        content: "";
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        z-index: 400;
+    }
+    {{ progressBarIdTypeSymbol }}{{ progressBarId }}:after {
+        display: block;
+        width: 720px;
+        height: 25px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        content: "";
+        -moz-box-shadow: inset 0 0 5px #343434;
+        -webkit-box-shadow: inset 0 0 5px #343434;
+        box-shadow: inset 0 0 5px #343434;
+        z-index: 500;
+    }
+    {{ progressBarIdTypeSymbol }}{{ progressBarId }} li {
+        display: inline-block;
+        width: 120px;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        position: relative;
+        height: 15px;
+    }
+        {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:first-child {
+            -webkit-border-top-left-radius: 10px;
+            -webkit-border-bottom-left-radius: 10px;
+            -moz-border-radius-topleft: 10px;
+            -moz-border-radius-bottomleft: 10px;
             border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:last-child {
+            -webkit-border-top-right-radius: 10px;
+            -webkit-border-bottom-right-radius: 10px;
+            -moz-border-radius-topright: 10px;
+            -moz-border-radius-bottomright: 10px;
             border-top-right-radius: 10px;
-            z-index: 400; }
-          {{ progressBarIdTypeSymbol }}{{ progressBarId }}:after {
+            border-bottom-right-radius: 10px;
+        }
+            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:last-child:before {
+                border: none;
+            }
+            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:last-child:after {
+                border: none;
+            }
+        {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:after {
+            width: 0px;
+            height: 0px;
             display: block;
-            width: 720px;
-            height: 25px;
-            -moz-border-radius: 10px;
-            -webkit-border-radius: 10px;
-            border-radius: 10px;
+            border: 13px solid transparent;
+            border-left-color: white;
             position: absolute;
             top: 0px;
-            left: 0px;
+            left: 121px;
             content: "";
-            -moz-box-shadow: inset 0 0 5px #343434;
-            -webkit-box-shadow: inset 0 0 5px #343434;
-            box-shadow: inset 0 0 5px #343434;
-            z-index: 500; }
-          {{ progressBarIdTypeSymbol }}{{ progressBarId }} li {
-            display: inline-block;
-            width: 120px;
-            text-align: center;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            position: relative;
-            height: 15px; }
-            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:first-child {
-              -webkit-border-top-left-radius: 10px;
-              -webkit-border-bottom-left-radius: 10px;
-              -moz-border-radius-topleft: 10px;
-              -moz-border-radius-bottomleft: 10px;
-              border-top-left-radius: 10px;
-              border-bottom-left-radius: 10px; }
-            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:last-child {
-              -webkit-border-top-right-radius: 10px;
-              -webkit-border-bottom-right-radius: 10px;
-              -moz-border-radius-topright: 10px;
-              -moz-border-radius-bottomright: 10px;
-              border-top-right-radius: 10px;
-              border-bottom-right-radius: 10px; }
-            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:after {
-              width: 0px;
-              height: 0px;
-              display: block;
-              border: 13px solid transparent;
-              border-left: 13px solid white;
-              position: absolute;
-              top: 0px;
-              left: 121px;
-              content: "";
-              z-index: 200; }
-            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:last-child:before {
-              border: none; }
-            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:before {
-              width: 0px;
-              height: 0px;
-              display: block;
-              border: 13px solid transparent;
-              border-left: 13px solid {{ future_color }};
-              position: absolute;
-              top: 0px;
-              left: 118px;
-              content: "";
-              z-index: 300; }
-            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:last-child:after {
-              border: none; }
+            z-index: 200;
+        }
+        {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:before {
+            width: 0px;
+            height: 0px;
+            display: block;
+            border: 13px solid transparent;
+            border-left-color: {{ future_color }};
+            position: absolute;
+            top: 0px;
+            left: 118px;
+            content: "";
+            z-index: 300;
+        }
+    </script>
+    <script id="progress_bar-less-tpl" type="text/x-tpl">
+{{ progressBarIdTypeSymbol }}{{ progressBarId }} {
+    display: block;
+    width: 720px;
+    height: 25px;
+    background-color: {{ future_color }};
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-family: "Futura", "Arial", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: white;
+    position: relative;
+    &:before {
+        display: block;
+        width: 720px;
+        height: 12px;
+        background-color: rgba(255, 255, 255, 0.1);
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        content: "";
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        z-index: 400;
+    }
+    &:after {
+        display: block;
+        width: 720px;
+        height: 25px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        content: "";
+        -moz-box-shadow: inset 0 0 5px #343434;
+        -webkit-box-shadow: inset 0 0 5px #343434;
+        box-shadow: inset 0 0 5px #343434;
+        z-index: 500;
+    }
+    li {
+        display: inline-block;
+        width: 120px;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        position: relative;
+        height: 15px;
+        &:before {
+            width: 0px;
+            height: 0px;
+            display: block;
+            border: 13px solid transparent;
+            border-left: 13px solid {{ future_color }};
+            position: absolute;
+            top: 0px;
+            left: 118px;
+            content: "";
+            z-index: 300;
+        }
+
+        &:after {
+            width: 0px;
+            height: 0px;
+            display: block;
+            border: 13px solid transparent;
+            border-left-color: white;
+            position: absolute;
+            top: 0px;
+            left: 121px;
+            content: "";
+            z-index: 200;
+        }
+        &:first-child {
+            -webkit-border-top-left-radius: 10px;
+            -webkit-border-bottom-left-radius: 10px;
+            -moz-border-radius-topleft: 10px;
+            -moz-border-radius-bottomleft: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        &:last-child {
+            -webkit-border-top-right-radius: 10px;
+            -webkit-border-bottom-right-radius: 10px;
+            -moz-border-radius-topright: 10px;
+            -moz-border-radius-bottomright: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            &:before { border: none; }
+            &:after { border: none; }
+        }
+    }
+}
     </script>
     <script id="progress_bar-sass-tpl" type="text/x-tpl">
-    {{ progressBarIdTypeSymbol }}{{ progressBarId }}
+{{ progressBarIdTypeSymbol }}{{ progressBarId }}
+    display: block
+    width: 740px
+    height: 25px
+    background-color: {{ future_color }}
+    -moz-border-radius: 10px
+    -webkit-border-radius: 10px
+    border-radius: 10px
+    font-family: "Futura","Arial",sans-serif
+    font-weight: 700
+    font-size: .9em
+    color: #fff
+    position: relative
+
+    &:before
+        display: block
+        width: 740px
+        height: 12px
+        background-color: rgba(255, 255, 255, .1)
+        position: absolute
+        top: 0px
+        left: 0px
+        content: ""
+        border-top-left-radius: 10px
+        border-top-right-radius: 10px
+        z-index: 400
+
+    &:after
         display: block
         width: 740px
         height: 25px
-        background-color: {{ future_color }}
         -moz-border-radius: 10px
         -webkit-border-radius: 10px
         border-radius: 10px
-        font-family: "Futura","Arial",sans-serif
-        font-weight: 700
-        font-size: .9em
-        color: #fff
+        position: absolute
+        top: 0px
+        left: 0px
+        content: "";
+        -moz-box-shadow: inset 0 0 5px #343434
+        -webkit-box-shadow: inset 0 0 5px #343434
+        box-shadow: inset 0 0 5px #343434
+        z-index: 500
+    li
+        display: inline-block
+        width: 120px
+        text-align: center
+        padding-top: 5px
+        padding-bottom: 5px
         position: relative
-        
-        &:before
-            display: block
-            width: 740px
-            height: 12px
-            background-color: rgba(255, 255, 255, .1)
-            position: absolute
-            top: 0px
-            left: 0px
-            content: ""
+        height: 15px
+
+        &:first-child
+            -webkit-border-top-left-radius: 10px
+            -webkit-border-bottom-left-radius: 10px
+            -moz-border-radius-topleft: 10px
+            -moz-border-radius-bottomleft: 10px
             border-top-left-radius: 10px
+            border-bottom-left-radius: 10px
+
+        &:last-child
+            -webkit-border-top-right-radius: 10px
+            -webkit-border-bottom-right-radius: 10px
+            -moz-border-radius-topright: 10px
+            -moz-border-radius-bottomright: 10px
             border-top-right-radius: 10px
-            z-index: 400
-            
+            border-bottom-right-radius: 10px
+
         &:after
+            width: 0px
+            height: 0px
             display: block
-            width: 740px
-            height: 25px
-            -moz-border-radius: 10px
-            -webkit-border-radius: 10px
-            border-radius: 10px
+            border: 13px solid transparent
+            border-left-color: #fff
             position: absolute
             top: 0px
-            left: 0px
-            content: "";
-            -moz-box-shadow: inset 0 0 5px #343434
-            -webkit-box-shadow: inset 0 0 5px #343434
-            box-shadow: inset 0 0 5px #343434
-            z-index: 500
-        li
-            display: inline-block
-            width: 120px
-            text-align: center
-            padding-top: 5px
-            padding-bottom: 5px
-            position: relative
-            height: 15px
+            left: 121px
+            content: ''
+            z-index: 200
 
-            &:first-child
-                -webkit-border-top-left-radius: 10px
-                -webkit-border-bottom-left-radius: 10px
-                -moz-border-radius-topleft: 10px
-                -moz-border-radius-bottomleft: 10px
-                border-top-left-radius: 10px
-                border-bottom-left-radius: 10px
-
-            &:last-child
-                -webkit-border-top-right-radius: 10px
-                -webkit-border-bottom-right-radius: 10px
-                -moz-border-radius-topright: 10px
-                -moz-border-radius-bottomright: 10px
-                border-top-right-radius: 10px
-                border-bottom-right-radius: 10px
-
-            &:after
-                width: 0px
-                height: 0px
-                display: block
-                border: 13px solid transparent
-                border-left: 13px solid #fff
-                position: absolute
-                top: 0px
-                left: 121px
-                content: ''
-                z-index: 200
-
-            &:last-child
-                &:before
-                    border: none
-
+        &:last-child
             &:before
-                width: 0px
-                height: 0px
-                display: block
-                border: 13px solid transparent
-                border-left: 13px solid {{ future_color }}
-                position: absolute
-                top: 0px
-                left: 118px
-                content: ''
-                z-index: 300
+                border: none
 
-            &:last-child
-                &:after
-                    border: none
+        &:before
+            width: 0px
+            height: 0px
+            display: block
+            border: 13px solid transparent
+            border-left-color: {{ future_color }}
+            position: absolute
+            top: 0px
+            left: 118px
+            content: ''
+            z-index: 300
 
+        &:last-child
+            &:after
+                border: none
     </script>
     <script id="step-active-css" type="text/x-tpl">
 .{{ class_name }} li:nth-child({{ index }}) {
     background-color: {{ active_color }};
 }
-.{{ class_name }} li:nth-child({{ index }}):before {
-    border-left-color: {{ active_color }} !important;
-}
+    .{{ class_name }} li:nth-child({{ index }}):before {
+        border-left-color: {{ active_color }} !important;
+    }
     </script>
     <script id="step-past-css" type="text/x-tpl">
 .{{ class_name }} li:nth-child(-n+{{ past_index }}) {
     background-color: {{ past_color }} !important;
 }
-.{{ class_name }} li:nth-child(-n+{{ past_index }}):before {
-    border-left-color: {{ past_color }} !important;
+    .{{ class_name }} li:nth-child(-n+{{ past_index }}):before {
+        border-left-color: {{ past_color }} !important;
+    }
+    </script>
+    <script id="step-active-less" type="text/x-tpl">
+.{{ class_name }} li {
+    &:nth-child({{ index }}) {
+        background-color: {{ active_color }};
+    }
+    &:nth-child({{ index }}):before {
+        border-left-color: {{ active_color }} !important;
+    }
+}
+    </script>
+    <script id="step-past-less" type="text/x-tpl">
+.{{ class_name }} li {
+    &:nth-child(-n+{{ past_index }}) {
+        background-color: {{ past_color }} !important;
+        &:before { border-left-color: {{ past_color }} !important; }
+    }
 }
     </script>
     <script id="step-active-sass" type="text/x-tpl">
