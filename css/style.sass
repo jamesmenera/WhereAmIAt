@@ -30,7 +30,7 @@ h1
                         
         color: $blue
         
-#progress_bar
+#progress_bar, .progress_bar
     margin: 40px auto !important
 
 #bar_description
@@ -48,3 +48,14 @@ form
             display: block
             margin-bottom: 15px
             
+    #list-id-block
+        label
+            &:first-child, &:nth-child(4)
+                text-transform: uppercase
+                width: 230px
+                display: inline-block
+                color: $blue
+                
+            &:nth-child(4)
+                display: block
+        
