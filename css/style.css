@@ -23,7 +23,7 @@ h1 {
     h1 span:first-child {
       color: #eb008b; }
 
-#progress_bar {
+#progress_bar_container ul {
   margin: 40px auto !important; }
 
 #bar_description {
