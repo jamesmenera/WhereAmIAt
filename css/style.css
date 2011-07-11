@@ -100,7 +100,8 @@ section {
     padding-bottom: 20px; }
   section p {
     padding-bottom: 30px;
-    font-size: 18px; }
+    font-size: 18px;
+    line-height: 120%; }
   section span {
     color: #eb008b; }
   section a {
@@ -126,3 +127,75 @@ section {
     margin-top: 0;
     text-indent: -9999em;
     width: 79px; }
+
+#focus {
+  width: 720px;
+  margin: 0 auto; }
+  #focus #progress_bar {
+    margin: 30px auto !important; }
+  #focus h3 {
+    font-family: "League Gothic", league-gothic-1, league-gothic-2, sans-serif;
+    font-size: 50px;
+    margin-bottom: 70px;
+    font-weight: 200;
+    position: relative; }
+    #focus h3 span {
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      font-size: 30px;
+      letter-spacing: 1px; }
+      #focus h3 span a {
+        color: #298eb2; }
+  #focus h4 {
+    font-family: "League Gothic", league-gothic-1, league-gothic-2, sans-serif;
+    font-size: 35px;
+    margin-bottom: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    color: white;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eb008b; }
+    #focus h4 span {
+      color: #389fd9; }
+  #focus p {
+    font-size: 18px;
+    line-height: 120%; }
+    #focus p span {
+      color: #f29d88; }
+    #focus p + img {
+      margin-top: 20px; }
+  #focus h4 ~ ul {
+    padding-top: 20px;
+    padding-left: 15px; }
+    #focus h4 ~ ul li {
+      padding-bottom: 10px;
+      letter-spacing: 0.5px;
+      line-height: 120%; }
+      #focus h4 ~ ul li span {
+        color: #389fd9; }
+  #focus pre {
+    margin-top: 20px;
+    background-color: #022c37;
+    display: block;
+    padding: 10px;
+    margin-bottom: 30px; }
+    #focus pre .pun + .pln {
+      color: white !important; }
+    #focus pre .pln, #focus pre .com + .pln {
+      color: #b75697 !important; }
+  #focus img {
+    background-color: white;
+    padding: 5px;
+    margin-bottom: 20px;
+    border: 4px solid #cecece; }
+  #focus ul + img {
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  #focus ol {
+    padding-left: 20px; }
+    #focus ol li {
+      padding-bottom: 10px;
+      line-height: 120%; }
+      #focus ol li a {
+        color: #298eb2; }

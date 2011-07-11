@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Progress Bar Code Generator</title>
+  <script type="text/javascript" src="http://use.typekit.com/cup4mvz.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <style type="text/css">
+/* Form Styles */
+.progress_bar-id-type-label {
+    display: inline-block;
+    width: 5em;
+}
+.progress_bar-id-type-label:after {
+    content: attr(title);
+ }
+
+div, form {
+    padding:  1em;
+}
+</style>
+  <link rel="stylesheet" href="css/reset.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="css/progress_bar.css" type="text/css">
+  <link rel="stylesheet" href="css/prettify.css" type="text/css">
+
+  
+  <script src="js/prettify.js" type="text/javascript"></script>
+  <script src="js/lang-css.js" type="text/javascript"></script>
+
+    <!-- <link type="text/css" rel="stylesheet" href="progress_bar.css" /> -->
+  <style type="text/css" id="stylesheet_output"></style>
+  </head>
+  <body onload="prettyPrint()">
+  <div id="wrap">
+          <h1>Where Am I <span>At?</span></h1>
+          
+          <div id="focus">
+          <h3>Using CSS3 to create an image-free Progress Bar
+          <span>By: <a href="http://twitter/jamesmenera">James Menera</a></span>
+          </h3>
+          
+            <p>Using some interesting and creative CSS3 pseudo-element magic and super basic HTML, I was able to create a pretty bitchin bread crumb progress bar without any images. It works in Firefox, Chrome, Safari, Opera and IE9.</p>
+            
+            <ul id="progress_bar" class="step_four">
+                <li>Step One</li>
+                <li>Step Two</li>
+                <li>Step Three</li>
+                <li>Step Four</li>
+                <li>Step Five</li>
+                <li>Step Six</li>
+            </ul>
+            
+            <h4>Writing the HTML</h4>
+            <p>This is the html for the progress bar. The class is being populated by Django templating language, but could easily be generated using mustache.js or other another templating language.</p>
+            
+            <pre class="prettyprint">
+<code>&lt;ul id=&#39;progress_bar&#39; class=&#39;{{ template_tag }}&#39;&gt;<br/>  &lt;li&gt;Step 1&lt;/li&gt;<br/>  &lt;li&gt;Step 2&lt;/li&gt;<br/>  &lt;li&gt;Step 3&lt;/li&gt;<br/>  &lt;li&gt;Step 4&lt;/li&gt;<br/>  &lt;li&gt;Step 5&lt;/li&gt;<br/>  &lt;li&gt;Step 6&lt;/li&gt;<br/>&lt;/ul&gt;
+</code></pre>
+
+     <h4>Styling the &lt;ul&gt;</h4>
+     
+     <p>All the magic happens in the css. Here is how to style <span>'#progress_bar'...</span></p>
+     
+     <ul>
+        <li><span>&lt;ul&gt;</span> - round the corners and apply a flat gray background-color.</li>
+        <li><span>:before</span> - create a highlight by taking 1/2 the height of the &lt;ul&gt;, rounding the top corners, absolutely positioning it at top: 0 with the background-color: rgba(255, 255, 255, .1)</li>
+        <li><span>:after</span> - add an inset box-shadow, absolutely position it above the both layers</li>
+    </ul>
+        
+        <img src="images/diagram_1.png" alt=""/>
+        
+        <pre class="prettyprint"><code>
+#progress_bar
+    width: 740px
+    height: 25px
+    display: block
+    background-color: #747474
+    -moz-border-radius: 10px
+    -webkit-border-radius: 10px
+    border-radius: 10px
+    font-family: &#34;Futura&#34;,&#34;Arial&#34;, sans-serif
+    font-weight: 700
+    font-size: .9em
+    color: #fff
+    position: relative
+    
+    &:before
+        width: 740px
+        height: 12px
+        display: block
+        background-color: rgba(255, 255, 255, .1)
+        position: absolute
+        top: 0px
+        left: 0px
+        content: &#39;&#39;
+        border-top-left-radius: 10px
+        border-top-right-radius: 10px
+        z-index: 400
+        
+    &:after
+        display: block
+        width: 740px
+        height: 25px
+        -moz-border-radius: 10px
+        -webkit-border-radius: 10px
+        border-radius: 10px
+        position: absolute
+        top: 0px
+        left: 0px
+        content: &#39;&#39;
+        -moz-box-shadow: inset 0 0 5px #343434
+        -webkit-box-shadow: inset 0 0 5px #343434
+        box-shadow: inset 0 0 5px #343434
+        z-index: 500
+</code></pre>
+
+    <h4>Styling the &lt;li&gt;'s & Creating the Chevrons</h4>
+    
+        <img src="images/diagram_2.png" alt="diagram_2" width="415" height="68" />
+        
+        <p>The first &lt;li&gt; is going to need rounded corners on the left side and the last &lt;li&gt; will need rounded corners on the right side. So using :first-child and :last-child round the corners:</p>
+                
+        <img src="images/diagram_3.png" alt="" />
+        <ol>
+            <li> Using :before and :after create two <a href="http://davidwalsh.name/css-triangles" title="">triangles.</a> The :before with the same background color used in the  &lt;ul&gt; and the :after with the color white.
+</li>
+            <li> Absolutely position the :after to the right edge of the &lt;li&gt;. Now absolutely position the :before a few pixels to the left of the :after.</li>
+            
+            <li> Every &lt;li&gt; is going to get a chevron except the last &lt;li&gt;. So also using :last-child:before and last-child:after add a border: none; to remove the chevron on the last-child.</li>
+        </ol>
+        
+<pre class="prettyprint">
+<code>
+li
+    display: inline-block
+    width: 120px
+    text-align: center
+    padding-top: 5px
+    padding-bottom: 5px
+    position: relative
+    height: 15px
+    
+    &:first-child
+        -webkit-border-top-left-radius: 10px
+        -webkit-border-bottom-left-radius: 10px
+        -moz-border-radius-topleft: 10px
+        -moz-border-radius-bottomleft: 10px
+        border-top-left-radius: 10px
+        border-bottom-left-radius: 10px
+        
+    &:last-child
+        -webkit-border-top-right-radius: 10px
+        -webkit-border-bottom-right-radius: 10px
+        -moz-border-radius-topright: 10px
+        -moz-border-radius-bottomright: 10px
+        border-top-right-radius: 10px
+        border-bottom-right-radius: 10px
+    
+    &:after
+        width: 0px
+        height: 0px
+        display: block
+        border: 13px solid transparent
+        border-left: 13px solid #fff
+        position: absolute
+        top: 0px
+        left: 121px
+        content: ''
+        z-index: 200
+        
+    &:last-child
+        &:before
+            border: none
+        
+    &:before
+        width: 0px
+        height: 0px
+        display: block
+        border: 13px solid transparent
+        border-left: 13px solid #747474
+        position: absolute
+        top: 0px
+        left: 118px
+        content: ''
+        z-index: 300
+        
+    &:last-child
+        &:after
+            border: none
+</code>
+</pre>
+
+        <h4>Progressing the Bar</h4>
+        
+        <img src="images/diagram_4.png" alt="" />
+        <ol>
+            <li>Use the &lt;ul&gt;&#39;s class to color the child elements.</li>
+            <li>Create rules in the CSS to tell which children need to be colored when in different statuses.</li>
+        </ol>
+        
+<pre class="prettyprint">
+<code>
+.step_one
+    li
+        &:first-child
+            background-color: $lteal
+            
+            &:before
+                border-left: 13px solid $lteal !important
+
+.step_two
+    li
+        &:first-child
+            background-color: $dteal
+            
+            &:before
+                border-left: 13px solid $dteal !important
+            
+        &:nth-child(2)
+            background-color: $lteal
+            
+            &:before
+                border-left: 13px solid $lteal !important
+
+.step_three
+    li
+        &:nth-child(-n+2)
+            background-color: $dteal
+            
+            &:before
+                border-left: 13px solid $dteal !important
+            
+        &:nth-child(3)
+            background-color: $lteal
+            
+            &:before
+                border-left: 13px solid $lteal !important
+            
+.step_four
+    li
+        &:nth-child(-n+3)
+            background-color: $dteal
+            
+            &:before
+                border-left: 13px solid $dteal !important
+            
+        &:nth-child(4)
+            background-color: $lteal
+            
+            &:before
+                border-left: 13px solid $lteal !important
+
+.step_five
+    li
+        &:nth-child(-n+4)
+            background-color: $dteal
+            
+            &:before
+                border-left: 13px solid $dteal !important
+            
+        &:nth-child(5)
+            background-color: $lteal
+            
+            &:before
+                border-left: 13px solid $lteal !important
+
+.step_six
+    li
+        &:nth-child(-n+5)
+            background-color: $dteal
+            
+            &:before
+                border-left: 13px solid $dteal !important
+        
+        &:last-child
+            background-color: $lteal
+</code>
+</pre>
+
+<a id="from_andyet" href="http://andyet.net"><h2>from &amp;yet</h2></a>
+        </div>
+    </div>
+  </body>
+</html>
