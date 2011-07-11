@@ -79,7 +79,7 @@ form .output-block label {
   color: #298eb2;
   vertical-align: top; }
 form .output-block textarea {
-  width: 484px; }
+  width: 480px; }
 
 section {
   width: 720px;
@@ -106,7 +106,8 @@ section {
   section a {
     color: #298eb2; }
   section ul {
-    padding-left: 15px; }
+    padding-left: 15px;
+    padding-bottom: 30px; }
     section ul li {
       padding-bottom: 15px;
       font-size: 16px; }
