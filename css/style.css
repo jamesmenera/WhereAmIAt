@@ -1,7 +1,7 @@
 body {
   background-color: #202020;
   color: white;
-  font-family: futura, futura-pt-1, futura-pt-2, "arial", "helvetica neue", "helvetica", verdana, sans-serif;
+  font-family: "helvetica neue", "helvetica", futura, futura-pt-1, futura-pt-2, verdana, "arial", sans-serif;
   font-weight: 300; }
 
 #wrap {
@@ -37,6 +37,9 @@ h1 {
   margin-top: 50px;
   padding-bottom: 10px;
   border-bottom: 4px solid #298eb2; }
+  h1 a {
+    text-decoration: none;
+    color: white; }
   h1 span {
     color: #298eb2; }
     h1 span:first-child {
@@ -57,13 +60,15 @@ form ul {
   form ul li {
     display: block;
     margin-bottom: 15px; }
-form #list-id-block label:first-child, form #list-id-block label:nth-child(4) {
-  text-transform: uppercase;
-  width: 230px;
-  display: inline-block;
-  color: #298eb2; }
-form #list-id-block label:nth-child(4) {
-  display: block; }
+form #list-id-block label {
+  font-size: 14px !important; }
+  form #list-id-block label:first-child, form #list-id-block label:nth-child(4) {
+    text-transform: uppercase;
+    width: 230px;
+    display: inline-block;
+    color: #298eb2; }
+  form #list-id-block label:nth-child(4) {
+    display: block; }
 form .progress_bar-classes-block {
   position: relative; }
   form .progress_bar-classes-block label {
@@ -71,7 +76,8 @@ form .progress_bar-classes-block {
     width: 230px;
     display: inline-block;
     color: #298eb2;
-    vertical-align: top; }
+    vertical-align: top;
+    font-size: 14px; }
   form .progress_bar-classes-block p {
     position: absolute;
     width: 200px;
@@ -83,14 +89,16 @@ form #stylesheet-type-block label:first-child {
   text-transform: uppercase;
   width: 230px;
   display: inline-block;
-  color: #298eb2; }
+  color: #298eb2;
+  font-size: 14px; }
 form #colors-block ul li {
   display: block; }
   form #colors-block ul li label {
     text-transform: uppercase;
     width: 230px;
     display: inline-block;
-    color: #298eb2; }
+    color: #298eb2;
+    font-size: 14px; }
 form .output-block label {
   text-transform: uppercase;
   width: 230px;
@@ -160,10 +168,11 @@ section {
     position: relative; }
     #focus h3 span {
       position: absolute;
-      bottom: -40px;
+      bottom: -30px;
       left: 0;
-      font-size: 30px;
-      letter-spacing: 1px; }
+      font-size: 16px;
+      letter-spacing: 1px;
+      font-family: helvetica, arial, sans-serif; }
       #focus h3 span a {
         color: #298eb2; }
   #focus h4 {
@@ -218,3 +227,11 @@ section {
       line-height: 120%; }
       #focus ol li a {
         color: #298eb2; }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  #progress_bar {
+    height: 26px !important; }
+    #progress_bar:after {
+      height: 26px !important; }
+    #progress_bar li {
+      height: 14px !important; } }

@@ -137,3 +137,9 @@
     border-left: 13px solid #298EB2 !important; }
 .step_six li:last-child {
   background-color: #EB008B; }
+  
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    #progress bar {
+        height: 30px;
+    }
+}
