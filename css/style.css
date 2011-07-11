@@ -6,7 +6,26 @@ body {
 
 #wrap {
   width: 960px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  position: relative; }
+
+nav {
+  color: #298eb2;
+  position: absolute;
+  top: -50px;
+  right: 0; }
+  nav a {
+    display: inline-block;
+    padding: 15px 5px 5px;
+    text-align: right;
+    color: #298eb2;
+    margin-left: 5px;
+    font-size: 18px;
+    border-bottom: 4px solid transparent; }
+    nav a:hover {
+      background-color: white;
+      text-decoration: none;
+      border-bottom: 4px solid #298eb2; }
 
 h1 {
   font-family: "League Gothic", league-gothic-1, league-gothic-2, sans-serif;

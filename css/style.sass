@@ -12,8 +12,28 @@ body
 #wrap
     width: 960px
     margin: 0 auto
-    //background-color: #fff
+    position: relative
     
+    
+nav
+    color: $blue
+    position: absolute
+    top: -50px
+    right: 0
+    
+    a
+        display: inline-block
+        padding: 15px 5px 5px
+        text-align: right
+        color: $blue
+        margin-left: 5px
+        font-size: 18px
+        border-bottom: 4px solid transparent
+        
+        &:hover
+            background-color: #fff
+            text-decoration: none
+            border-bottom: 4px solid $blue
 h1
     font-family: 'League Gothic', league-gothic-1, league-gothic-2, sans-serif
     text-transform: uppercase
