@@ -1,7 +1,7 @@
 body {
   background-color: #202020;
   color: white;
-  font-family: futura-pt-1, futura-pt-2, "arial", "helvetica neue", "helvetica", verdana, sans-serif;
+  font-family: futura, futura-pt-1, futura-pt-2, "arial", "helvetica neue", "helvetica", verdana, sans-serif;
   font-weight: 300; }
 
 #wrap {
@@ -9,7 +9,7 @@ body {
   margin: 0 auto; }
 
 h1 {
-  font-family: league-gothic-1, league-gothic-2, sans-serif;
+  font-family: "League Gothic", league-gothic-1, league-gothic-2, sans-serif;
   text-transform: uppercase;
   font-size: 120px;
   color: white;
