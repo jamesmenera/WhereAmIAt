@@ -228,6 +228,14 @@ section {
       #focus ol li a {
         color: #298eb2; }
 
+#dsq-footer a, #dsq-account-dropdown a {
+  color: #298eb2 !important; }
+  #dsq-footer a span, #dsq-footer a em, #dsq-account-dropdown a span, #dsq-account-dropdown a em {
+    color: #298eb2 !important; }
+
+.dsq-brlink {
+  color: #298eb2 !important; }
+
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   #progress_bar {
     height: 26px !important; }
@@ -235,7 +243,3 @@ section {
       height: 26px !important; }
     #progress_bar li {
       height: 14px !important; } }
-#dsq-footer a, #dsq-account-dropdown a, .dsq-brlink a {
-  color: #298eb2 !important; }
-  #dsq-footer a span, #dsq-footer a em, #dsq-account-dropdown a span, #dsq-account-dropdown a em, .dsq-brlink a span, .dsq-brlink a em {
-    color: #298eb2 !important; }
