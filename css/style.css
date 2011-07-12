@@ -235,7 +235,7 @@ section {
       height: 26px !important; }
     #progress_bar li {
       height: 14px !important; } }
-#dsq-footer a, #dsq-account-dropdown a, #dsq-brlink a {
+#dsq-footer a, #dsq-account-dropdown a, .dsq-brlink a {
   color: #298eb2 !important; }
-  #dsq-footer a span, #dsq-footer a em, #dsq-account-dropdown a span, #dsq-account-dropdown a em, #dsq-brlink a span, #dsq-brlink a em {
+  #dsq-footer a span, #dsq-footer a em, #dsq-account-dropdown a span, #dsq-account-dropdown a em, .dsq-brlink a span, .dsq-brlink a em {
     color: #298eb2 !important; }
