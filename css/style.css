@@ -235,3 +235,7 @@ section {
       height: 26px !important; }
     #progress_bar li {
       height: 14px !important; } }
+#dsq-footer a {
+  color: #298eb2 !important; }
+  #dsq-footer a span, #dsq-footer a em {
+    color: #298eb2 !important; }
