@@ -109,15 +109,19 @@ div, form {
     color: white;
     position: relative;
 }
-    {{ progressBarIdTypeSymbol }}{{ progressBarId }}:before {
+    {{ progressBarIdTypeSymbol }}{{ progressBarId }}:before,
+    {{ progressBarIdTypeSymbol }}{{ progressBarId }}:after {
         display: block;
         width: 720px;
-        height: 12px;
-        background-color: rgba(255, 255, 255, 0.1);
         position: absolute;
         top: 0px;
         left: 0px;
         content: "";
+        pointer-events: none !important;
+    }
+    {{ progressBarIdTypeSymbol }}{{ progressBarId }}:before {
+        height: 12px;
+        background-color: rgba(255, 255, 255, 0.1);
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         z-index: 400;
@@ -129,10 +133,6 @@ div, form {
         -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
         border-radius: 10px;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        content: "";
         -moz-box-shadow: inset 0 0 5px #343434;
         -webkit-box-shadow: inset 0 0 5px #343434;
         box-shadow: inset 0 0 5px #343434;
@@ -163,34 +163,30 @@ div, form {
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
         }
-            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:last-child:before {
-                border: none;
-            }
+            {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:last-child:before,
             {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:last-child:after {
                 border: none;
             }
-        {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:after {
+        {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:after,
+        {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:before {
+            position: absolute;
+            top: 0px;
             width: 0px;
             height: 0px;
             display: block;
             border: 13px solid transparent;
-            border-left-color: white;
-            position: absolute;
-            top: 0px;
-            left: 121px;
             content: "";
+        }
+        {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:after {
+            border: 13px solid transparent;
+            border-left-color: white;
+            left: 121px;
             z-index: 200;
         }
         {{ progressBarIdTypeSymbol }}{{ progressBarId }} li:before {
-            width: 0px;
-            height: 0px;
-            display: block;
-            border: 13px solid transparent;
             border-left-color: {{ future_color }};
             position: absolute;
-            top: 0px;
             left: 118px;
-            content: "";
             z-index: 300;
         }
     </script>
@@ -212,30 +208,29 @@ div, form {
     line-height: 14px;
     color: white;
     position: relative;
-    &:before {
+
+    &:before,
+    &:after {
         display: block;
         width: 720px;
-        height: 12px;
-        background-color: rgba(255, 255, 255, 0.1);
         position: absolute;
         top: 0px;
         left: 0px;
         content: "";
+        pointer-events: none !important;
+    }
+    &:before {
+        height: 12px;
+        background-color: rgba(255, 255, 255, 0.1);
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         z-index: 400;
     }
     &:after {
-        display: block;
-        width: 720px;
         height: 25px;
         -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
         border-radius: 10px;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        content: "";
         -moz-box-shadow: inset 0 0 5px #343434;
         -webkit-box-shadow: inset 0 0 5px #343434;
         box-shadow: inset 0 0 5px #343434;
@@ -249,33 +244,29 @@ div, form {
         padding-bottom: 5px;
         position: relative;
         height: 15px;
-        &:before {
-            width: 0px;
-            height: 0px;
-            display: block;
-            border: 13px solid transparent;
-            border-left: 13px solid {{ future_color }};
-            position: absolute;
-            top: 0px;
-            left: 118px;
-            content: "";
-            z-index: 300;
-        }
-
+        &:before,
         &:after {
             width: 0px;
             height: 0px;
             display: block;
-            border: 13px solid transparent;
-            border-left-color: white;
+            border: 13px solid transparent; 
             position: absolute;
-            top: 0px;
+            top: 0px;     
+            content: "";  
+        }
+        &:before {
+            border-left: 13px solid {{ future_color }};
+            left: 118px;
+            z-index: 300;
+        }
+
+        &:after {
+            border-left-color: white;
             left: 121px;
-            content: "";
             z-index: 200;
         }
         &:first-child {
-            -webkit-border-top-left-radius: 10px;
+            -webkit-border-radius: 10px;
             -webkit-border-bottom-left-radius: 10px;
             -moz-border-radius-topleft: 10px;
             -moz-border-radius-bottomleft: 10px;
@@ -311,30 +302,28 @@ div, form {
     color: #fff
     position: relative
 
-    &:before
+    &:before,
+    &:after
         display: block
-        width: 740px
-        height: 12px
-        background-color: rgba(255, 255, 255, .1)
+        width: 720px
         position: absolute
         top: 0px
         left: 0px
         content: ""
+        pointer-events: none !important
+
+    &:before
+        height: 12px
+        background-color: rgba(255, 255, 255, .1)
         border-top-left-radius: 10px
         border-top-right-radius: 10px
         z-index: 400
 
     &:after
-        display: block
-        width: 740px
         height: 25px
         -moz-border-radius: 10px
         -webkit-border-radius: 10px
         border-radius: 10px
-        position: absolute
-        top: 0px
-        left: 0px
-        content: "";
         -moz-box-shadow: inset 0 0 5px #343434
         -webkit-box-shadow: inset 0 0 5px #343434
         box-shadow: inset 0 0 5px #343434
@@ -364,34 +353,29 @@ div, form {
             border-top-right-radius: 10px
             border-bottom-right-radius: 10px
 
-        &:after
-            width: 0px
-            height: 0px
-            display: block
-            border: 13px solid transparent
-            border-left-color: #fff
-            position: absolute
-            top: 0px
-            left: 121px
-            content: ''
-            z-index: 200
-
-        &:last-child
-            &:before
-                border: none
-
+        &:after,
         &:before
             width: 0px
             height: 0px
             display: block
             border: 13px solid transparent
-            border-left-color: {{ future_color }}
             position: absolute
             top: 0px
-            left: 118px
             content: ''
+
+
+        &:after
+            border-left-color: #fff
+            left: 121px
+            z-index: 200
+
+        &:before
+            border-left-color: {{ future_color }}
+            left: 118px
             z-index: 300
 
+        &:last-child
+            &:before,
         &:last-child
             &:after
                 border: none
@@ -549,6 +533,11 @@ div, form {
         }
         _render_output();
     })();
+    $(function () {
+        $('#progress_bar li').click(function (e) {
+            console.log('Clicked li: ', $(this).text());
+        });
+    });
     </script>
     </div>
   </body>
